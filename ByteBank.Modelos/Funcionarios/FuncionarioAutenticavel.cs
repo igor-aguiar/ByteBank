@@ -18,7 +18,17 @@ namespace ByteBank.Modelos.Funcionarios
 
         public bool Autenticar(string senha)
         {
-            return Senha == senha;
+            return AutenticacaoHelper.CompararSenha(Senha, senha);
+        }
+
+        internal protected override double GetBonificacao()
+        {
+            return Salario * 0.11;
+        }
+
+        public override void AumentarSalario()
+        {
+            Salario *= 0.4;
         }
     }
 }
